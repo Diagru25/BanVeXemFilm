@@ -1,0 +1,14 @@
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\bin\Debug\VeXemFilm.exe.config
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\bin\Debug\VeXemFilm.exe
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\bin\Debug\VeXemFilm.pdb
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.csprojResolveAssemblyReference.cache
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.Properties.Resources.resources
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.csproj.GenerateResource.Cache
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.exe
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.pdb
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.FrmDangNhap.resources
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.GUI.FrmMain.resources
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.GUI.UcDatVe.resources
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.GUI.UcLichChieu.resources
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.GUI.UcPhim.resources
+C:\Users\Diagr\OneDrive\Desktop\VeXemFilm\VeXemFilm\obj\Debug\VeXemFilm.GUI.UcVe.resources
