@@ -33,8 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +68,12 @@
     </Compile>
     <Compile Include="GUI\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UcPhongChieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UcPhongChieu.Designer.cs">
+      <DependentUpon>UcPhongChieu.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UcVe.cs">
       <SubType>UserControl</SubType>
@@ -82,6 +99,12 @@
     <Compile Include="GUI\UcDatVe.Designer.cs">
       <DependentUpon>UcDatVe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\EF\Account.cs" />
+    <Compile Include="Model\EF\LichChieu.cs" />
+    <Compile Include="Model\EF\Phim.cs" />
+    <Compile Include="Model\EF\PhongChieu.cs" />
+    <Compile Include="Model\EF\Ve.cs" />
+    <Compile Include="Model\EF\VeXemPhimDbContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FrmDangNhap.resx">
@@ -99,6 +122,9 @@
     <EmbeddedResource Include="GUI\UcPhim.resx">
       <DependentUpon>UcPhim.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UcPhongChieu.resx">
+      <DependentUpon>UcPhongChieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcVe.resx">
       <DependentUpon>UcVe.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +137,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

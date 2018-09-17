@@ -53,6 +53,12 @@ namespace VeXemFilm.GUI
                                 pnlMain.Controls.Add(uc3);
                                 break;
 
+                case "Phòng chiếu":
+                                UcPhongChieu uc4 = new UcPhongChieu();
+                                uc4.Dock = DockStyle.Fill;
+                                pnlMain.Controls.Add(uc4);
+                                break;
+
                 default:        break;
 
             }
