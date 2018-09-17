@@ -43,6 +43,8 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txbSoGhe = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvPhongChieu)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -119,6 +121,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txbSoGhe);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txbViTri);
             this.groupBox1.Controls.Add(this.txbTen);
             this.groupBox1.Controls.Add(this.txbMa);
@@ -189,6 +193,22 @@
             this.panel1.Size = new System.Drawing.Size(495, 561);
             this.panel1.TabIndex = 6;
             // 
+            // txbSoGhe
+            // 
+            this.txbSoGhe.Location = new System.Drawing.Point(79, 262);
+            this.txbSoGhe.Name = "txbSoGhe";
+            this.txbSoGhe.Size = new System.Drawing.Size(251, 20);
+            this.txbSoGhe.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(38, 265);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Số ghế";
+            // 
             // UcPhongChieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,5 +245,7 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txbSoGhe;
+        private System.Windows.Forms.Label label4;
     }
 }
