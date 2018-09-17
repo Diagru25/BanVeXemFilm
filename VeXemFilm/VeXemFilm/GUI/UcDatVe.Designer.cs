@@ -228,12 +228,13 @@
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(45, 45);
             this.button5.TabIndex = 0;
             this.button5.Text = "A1";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // UcDatVe
             // 

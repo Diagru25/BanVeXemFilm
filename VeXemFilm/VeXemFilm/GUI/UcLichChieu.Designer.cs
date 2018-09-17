@@ -42,15 +42,18 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpNgayChieu = new System.Windows.Forms.DateTimePicker();
+            this.cboPhongChieu = new System.Windows.Forms.ComboBox();
+            this.cboPhim = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnThoat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cboPhim = new System.Windows.Forms.ComboBox();
-            this.cboPhongChieu = new System.Windows.Forms.ComboBox();
-            this.dtpNgayChieu = new System.Windows.Forms.DateTimePicker();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLichChieu)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -61,11 +64,16 @@
             // dgrvLichChieu
             // 
             this.dgrvLichChieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrvLichChieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
             this.dgrvLichChieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvLichChieu.Location = new System.Drawing.Point(0, 0);
             this.dgrvLichChieu.Name = "dgrvLichChieu";
             this.dgrvLichChieu.Size = new System.Drawing.Size(495, 561);
             this.dgrvLichChieu.TabIndex = 0;
+            this.dgrvLichChieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrvLichChieu_CellClick);
             // 
             // txbGiaVe
             // 
@@ -191,6 +199,58 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin lịch chiếu";
             // 
+            // dtpNgayChieu
+            // 
+            this.dtpNgayChieu.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayChieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayChieu.Location = new System.Drawing.Point(79, 216);
+            this.dtpNgayChieu.Name = "dtpNgayChieu";
+            this.dtpNgayChieu.Size = new System.Drawing.Size(251, 20);
+            this.dtpNgayChieu.TabIndex = 13;
+            // 
+            // cboPhongChieu
+            // 
+            this.cboPhongChieu.FormattingEnabled = true;
+            this.cboPhongChieu.Location = new System.Drawing.Point(79, 322);
+            this.cboPhongChieu.Name = "cboPhongChieu";
+            this.cboPhongChieu.Size = new System.Drawing.Size(251, 21);
+            this.cboPhongChieu.TabIndex = 12;
+            // 
+            // cboPhim
+            // 
+            this.cboPhim.FormattingEnabled = true;
+            this.cboPhim.Location = new System.Drawing.Point(79, 270);
+            this.cboPhim.Name = "cboPhim";
+            this.cboPhim.Size = new System.Drawing.Size(251, 21);
+            this.cboPhim.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 325);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Phòng";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 273);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Phim";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(19, 384);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Giá vé";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnThoat);
@@ -221,57 +281,23 @@
             this.panel1.Size = new System.Drawing.Size(495, 561);
             this.panel1.TabIndex = 3;
             // 
-            // label5
+            // Column1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 384);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Giá vé";
+            this.Column1.DataPropertyName = "ID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
             // 
-            // label6
+            // Column2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 273);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Phim";
+            this.Column2.DataPropertyName = "TenPhim";
+            this.Column2.HeaderText = "Tên Phim";
+            this.Column2.Name = "Column2";
             // 
-            // label7
+            // Column3
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 325);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Phòng";
-            // 
-            // cboPhim
-            // 
-            this.cboPhim.FormattingEnabled = true;
-            this.cboPhim.Location = new System.Drawing.Point(79, 270);
-            this.cboPhim.Name = "cboPhim";
-            this.cboPhim.Size = new System.Drawing.Size(251, 21);
-            this.cboPhim.TabIndex = 11;
-            // 
-            // cboPhongChieu
-            // 
-            this.cboPhongChieu.FormattingEnabled = true;
-            this.cboPhongChieu.Location = new System.Drawing.Point(79, 322);
-            this.cboPhongChieu.Name = "cboPhongChieu";
-            this.cboPhongChieu.Size = new System.Drawing.Size(251, 21);
-            this.cboPhongChieu.TabIndex = 12;
-            // 
-            // dtpNgayChieu
-            // 
-            this.dtpNgayChieu.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayChieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayChieu.Location = new System.Drawing.Point(79, 216);
-            this.dtpNgayChieu.Name = "dtpNgayChieu";
-            this.dtpNgayChieu.Size = new System.Drawing.Size(251, 20);
-            this.dtpNgayChieu.TabIndex = 13;
+            this.Column3.DataPropertyName = "KhoiChieu";
+            this.Column3.HeaderText = "Khởi chiếu";
+            this.Column3.Name = "Column3";
             // 
             // UcLichChieu
             // 
@@ -317,5 +343,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

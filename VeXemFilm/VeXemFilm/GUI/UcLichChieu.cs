@@ -16,5 +16,10 @@ namespace VeXemFilm.GUI
         {
             InitializeComponent();
         }
+
+        private void dgrvLichChieu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }
