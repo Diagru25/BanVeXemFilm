@@ -45,6 +45,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txbSoGhe = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenPhongChieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ViTri = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoGhe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvPhongChieu)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -55,6 +59,11 @@
             // dgrvPhongChieu
             // 
             this.dgrvPhongChieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrvPhongChieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.TenPhongChieu,
+            this.ViTri,
+            this.SoGhe});
             this.dgrvPhongChieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvPhongChieu.Location = new System.Drawing.Point(0, 0);
             this.dgrvPhongChieu.Name = "dgrvPhongChieu";
@@ -109,6 +118,7 @@
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -165,6 +175,7 @@
             this.btnThoat.TabIndex = 3;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnSua
             // 
@@ -174,6 +185,7 @@
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -183,6 +195,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // panel1
             // 
@@ -208,6 +221,34 @@
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Số ghế";
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // TenPhongChieu
+            // 
+            this.TenPhongChieu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenPhongChieu.DataPropertyName = "TenPhongChieu";
+            this.TenPhongChieu.HeaderText = "Tên phòng";
+            this.TenPhongChieu.Name = "TenPhongChieu";
+            // 
+            // ViTri
+            // 
+            this.ViTri.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ViTri.DataPropertyName = "ViTri";
+            this.ViTri.HeaderText = "Vị trí";
+            this.ViTri.Name = "ViTri";
+            // 
+            // SoGhe
+            // 
+            this.SoGhe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SoGhe.DataPropertyName = "TongSoGhe";
+            this.SoGhe.HeaderText = "Số ghế";
+            this.SoGhe.Name = "SoGhe";
             // 
             // UcPhongChieu
             // 
@@ -247,5 +288,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txbSoGhe;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenPhongChieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ViTri;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoGhe;
     }
 }
