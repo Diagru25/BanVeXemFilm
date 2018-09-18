@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgrvLichChieu = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txbGiaVe = new System.Windows.Forms.TextBox();
-            this.txbTgKetThuc = new System.Windows.Forms.TextBox();
-            this.txbTgBatDau = new System.Windows.Forms.TextBox();
+            this.txbTgKetThuc = new System.Windows.Forms.MaskedTextBox();
+            this.txbTgBatDau = new System.Windows.Forms.MaskedTextBox();
             this.txbMa = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,11 +58,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnThoat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLichChieu)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,6 +80,40 @@
             this.dgrvLichChieu.Size = new System.Drawing.Size(495, 561);
             this.dgrvLichChieu.TabIndex = 0;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenPhim";
+            this.Column2.HeaderText = "Tên Phim";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ThoiGianBatDau";
+            dataGridViewCellStyle3.Format = "hh\\:mm";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.HeaderText = "Giờ chiếu";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "ThoiGianKetThuc";
+            dataGridViewCellStyle4.Format = "hh\\:mm";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column4.HeaderText = "Kết thúc";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "TenPhongChieu";
+            this.Column5.HeaderText = "Phòng chiếu";
+            this.Column5.Name = "Column5";
+            // 
             // txbGiaVe
             // 
             this.txbGiaVe.Location = new System.Drawing.Point(79, 381);
@@ -88,16 +124,20 @@
             // txbTgKetThuc
             // 
             this.txbTgKetThuc.Location = new System.Drawing.Point(79, 258);
+            this.txbTgKetThuc.Mask = "00:00";
             this.txbTgKetThuc.Name = "txbTgKetThuc";
             this.txbTgKetThuc.Size = new System.Drawing.Size(251, 20);
             this.txbTgKetThuc.TabIndex = 6;
+            this.txbTgKetThuc.ValidatingType = typeof(System.DateTime);
             // 
             // txbTgBatDau
             // 
             this.txbTgBatDau.Location = new System.Drawing.Point(79, 207);
+            this.txbTgBatDau.Mask = "00:00";
             this.txbTgBatDau.Name = "txbTgBatDau";
             this.txbTgBatDau.Size = new System.Drawing.Size(251, 20);
             this.txbTgBatDau.TabIndex = 5;
+            this.txbTgBatDau.ValidatingType = typeof(System.DateTime);
             // 
             // txbMa
             // 
@@ -289,36 +329,6 @@
             this.panel1.Size = new System.Drawing.Size(495, 561);
             this.panel1.TabIndex = 3;
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenPhim";
-            this.Column2.HeaderText = "Tên Phim";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "ThoiGianBatDau";
-            this.Column3.HeaderText = "Giờ chiếu";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "ThoiGianKetThuc";
-            this.Column4.HeaderText = "Kết thúc";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "TenPhongChieu";
-            this.Column5.HeaderText = "Phòng chiếu";
-            this.Column5.Name = "Column5";
-            // 
             // UcLichChieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,8 +352,8 @@
 
         private System.Windows.Forms.DataGridView dgrvLichChieu;
         private System.Windows.Forms.TextBox txbGiaVe;
-        private System.Windows.Forms.TextBox txbTgKetThuc;
-        private System.Windows.Forms.TextBox txbTgBatDau;
+        private System.Windows.Forms.MaskedTextBox txbTgKetThuc;
+        private System.Windows.Forms.MaskedTextBox txbTgBatDau;
         private System.Windows.Forms.TextBox txbMa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

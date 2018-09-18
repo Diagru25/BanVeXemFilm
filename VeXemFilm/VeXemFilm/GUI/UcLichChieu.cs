@@ -31,7 +31,6 @@ namespace VeXemFilm.GUI
         {
             dtpNgayChieu.Value = date;
             list.DataSource = new LichChieuDAO().LichChieuDetails().Where(x => x.NgayChieu == date).ToList();
-            dgrvLichChieu.DataSource = null;
             dgrvLichChieu.DataSource = list;
             cboPhim.DataSource = new PhimDAO().GetAll().Where(x => x.KhoiChieu <= date).ToList();
             cboPhim.ValueMember = "ID";
