@@ -43,6 +43,7 @@ namespace VeXemFilm.DAO
                 temp.TenPhim = item.TenPhim;
                 temp.ThoiLuong = item.ThoiLuong;
                 temp.MoTa = item.MoTa;
+                temp.KhoiChieu = item.KhoiChieu;
 
                 db.SaveChanges();
                 return true;

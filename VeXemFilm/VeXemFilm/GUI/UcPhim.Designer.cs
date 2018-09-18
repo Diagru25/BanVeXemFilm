@@ -45,7 +45,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpKhoiChieu = new System.Windows.Forms.DateTimePicker();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KhoiChieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenPhim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThoiLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +73,7 @@
             this.dgrvPhim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvPhim.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
+            this.KhoiChieu,
             this.TenPhim,
             this.MoTa,
             this.ThoiLuong});
@@ -142,6 +146,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtpKhoiChieu);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txbMoTa);
             this.groupBox1.Controls.Add(this.txbThoiLuong);
             this.groupBox1.Controls.Add(this.txbTen);
@@ -223,12 +229,37 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 357);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Khởi Chiếu";
+            // 
+            // dtpKhoiChieu
+            // 
+            this.dtpKhoiChieu.CustomFormat = "dd/MM/yyyy";
+            this.dtpKhoiChieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpKhoiChieu.Location = new System.Drawing.Point(79, 351);
+            this.dtpKhoiChieu.Name = "dtpKhoiChieu";
+            this.dtpKhoiChieu.Size = new System.Drawing.Size(251, 20);
+            this.dtpKhoiChieu.TabIndex = 9;
+            // 
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ID.DataPropertyName = "ID";
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            // 
+            // KhoiChieu
+            // 
+            this.KhoiChieu.DataPropertyName = "KhoiChieu";
+            this.KhoiChieu.HeaderText = "Khởi chiếu";
+            this.KhoiChieu.Name = "KhoiChieu";
+            this.KhoiChieu.DefaultCellStyle.Format = "dd/MM/yyyy";
             // 
             // TenPhim
             // 
@@ -243,6 +274,7 @@
             this.MoTa.DataPropertyName = "MoTa";
             this.MoTa.HeaderText = "Mô tả";
             this.MoTa.Name = "MoTa";
+            this.MoTa.Visible = false;
             // 
             // ThoiLuong
             // 
@@ -289,7 +321,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtpKhoiChieu;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KhoiChieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenPhim;
         private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThoiLuong;
