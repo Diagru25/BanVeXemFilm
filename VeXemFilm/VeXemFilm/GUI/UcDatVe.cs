@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VeXemFilm.DAO;
 
 namespace VeXemFilm.GUI
 {
@@ -15,6 +16,86 @@ namespace VeXemFilm.GUI
         public UcDatVe()
         {
             InitializeComponent();
+            //CreateListBtn(ucClick);
+        }
+
+        #region khởi tạo
+        private void LoadLichChieu(DateTime NgayChieu)
+        {
+            dgrvLichChieu.DataSource = new DatVeDAO().LichChieuTheoNgay(NgayChieu);
+        }
+        #endregion
+
+
+
+
+
+
+        private void ucClick(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            button.Enabled = false;
+            txbSoGhe.Text += button.Text + "; ";
+        }
+
+        private void CreateListBtn(EventHandler e, int tongsoghe, List<string> dsGheDaDat)
+        {
+            // vẽ các button theo hàng và cột (1 hàng có 17 ghế)
+            for(int c = 65; c <= 65 + tongsoghe / 17; c++) 
+                for (int i = 1; i < 18; i++)
+                {
+
+                    //khởi tạo button
+                    Button btnGhe = new Button();
+                    btnGhe.Width = 44;
+                    btnGhe.Height = 45;
+                    btnGhe.Name = "btn" + Convert.ToChar(c).ToString() + i;
+                    btnGhe.Text = "" + Convert.ToChar(c).ToString() + i;
+
+                    //kiểm tra xem ghế đó đã đặt chưa
+                    if (dsGheDaDat.Contains(btnGhe.Text))
+                    {
+                        //nếu đặt rồi thì thêm ghế vào ô text và ẩn đi
+                        txbSoGhe.Text += btnGhe.Text + "; ";
+                        btnGhe.Enabled = false;
+                    }
+
+                    //gán sự kiện click cho button
+                    btnGhe.Click += e;
+
+                    //thêm button vào panel
+                    fpnlGhe.Controls.Add(btnGhe);
+
+                    // vẽ đủ số lương ghế thì out
+                    if (--tongsoghe == 0) break;
+                }
+        }
+
+        private void dtpNgayChieu_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime NgayChieu = dtpNgayChieu.Value;
+            LoadLichChieu(NgayChieu);
+        }
+
+        private void dgrvLichChieu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string tenphong = dgrvLichChieu.CurrentRow.Cells["PhongChieu"].Value.ToString();
+            string tenphim = dgrvLichChieu.CurrentRow.Cells["TenPhim"].Value.ToString();
+            string giochieu = dgrvLichChieu.CurrentRow.Cells["GioChieu"].Value.ToString();
+            long phongchieuid = Convert.ToInt32(dgrvLichChieu.CurrentRow.Cells["PhongChieuID"].Value.ToString());
+            long phimid = Convert.ToInt32(Convert.ToInt32(dgrvLichChieu.CurrentRow.Cells["PhimID"].Value.ToString()));
+            int tongsoghe = Convert.ToInt32(dgrvLichChieu.CurrentRow.Cells["TongSoGhe"].Value.ToString());
+
+            // lấy ra danh sách ghế đã đặt của dòng được click
+            List < string > li = new DatVeDAO().LaySoGheDaDat(dtpNgayChieu.Value, phongchieuid, giochieu, phimid);
+
+            // đổi tên group box
+            grbGhe.Text = tenphong + " - " + tenphim;
+
+            //vẽ các ghế trong phòng
+            CreateListBtn(ucClick, tongsoghe, li);
+
+
         }
     }
 }
