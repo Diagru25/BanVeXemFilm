@@ -54,6 +54,8 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLichChieu)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -67,13 +69,14 @@
             this.dgrvLichChieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column4,
+            this.Column5});
             this.dgrvLichChieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrvLichChieu.Location = new System.Drawing.Point(0, 0);
             this.dgrvLichChieu.Name = "dgrvLichChieu";
             this.dgrvLichChieu.Size = new System.Drawing.Size(495, 561);
             this.dgrvLichChieu.TabIndex = 0;
-            this.dgrvLichChieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrvLichChieu_CellClick);
             // 
             // txbGiaVe
             // 
@@ -84,21 +87,21 @@
             // 
             // txbTgKetThuc
             // 
-            this.txbTgKetThuc.Location = new System.Drawing.Point(79, 162);
+            this.txbTgKetThuc.Location = new System.Drawing.Point(79, 258);
             this.txbTgKetThuc.Name = "txbTgKetThuc";
             this.txbTgKetThuc.Size = new System.Drawing.Size(251, 20);
             this.txbTgKetThuc.TabIndex = 6;
             // 
             // txbTgBatDau
             // 
-            this.txbTgBatDau.Location = new System.Drawing.Point(79, 111);
+            this.txbTgBatDau.Location = new System.Drawing.Point(79, 207);
             this.txbTgBatDau.Name = "txbTgBatDau";
             this.txbTgBatDau.Size = new System.Drawing.Size(251, 20);
             this.txbTgBatDau.TabIndex = 5;
             // 
             // txbMa
             // 
-            this.txbMa.Location = new System.Drawing.Point(79, 57);
+            this.txbMa.Location = new System.Drawing.Point(79, 112);
             this.txbMa.Name = "txbMa";
             this.txbMa.ReadOnly = true;
             this.txbMa.Size = new System.Drawing.Size(251, 20);
@@ -107,16 +110,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 222);
+            this.label4.Location = new System.Drawing.Point(6, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Ngày chiếu";
+            this.label4.Text = "Chọn ngày\r\n";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 165);
+            this.label3.Location = new System.Drawing.Point(16, 261);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 2;
@@ -125,7 +128,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 114);
+            this.label2.Location = new System.Drawing.Point(19, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 1;
@@ -134,7 +137,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 60);
+            this.label1.Location = new System.Drawing.Point(19, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 0;
@@ -148,6 +151,7 @@
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -157,6 +161,7 @@
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -166,6 +171,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -203,10 +209,11 @@
             // 
             this.dtpNgayChieu.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayChieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayChieu.Location = new System.Drawing.Point(79, 216);
+            this.dtpNgayChieu.Location = new System.Drawing.Point(82, 42);
             this.dtpNgayChieu.Name = "dtpNgayChieu";
             this.dtpNgayChieu.Size = new System.Drawing.Size(251, 20);
             this.dtpNgayChieu.TabIndex = 13;
+            this.dtpNgayChieu.ValueChanged += new System.EventHandler(this.dtpNgayChieu_ValueChanged);
             // 
             // cboPhongChieu
             // 
@@ -219,7 +226,7 @@
             // cboPhim
             // 
             this.cboPhim.FormattingEnabled = true;
-            this.cboPhim.Location = new System.Drawing.Point(79, 270);
+            this.cboPhim.Location = new System.Drawing.Point(79, 157);
             this.cboPhim.Name = "cboPhim";
             this.cboPhim.Size = new System.Drawing.Size(251, 21);
             this.cboPhim.TabIndex = 11;
@@ -236,7 +243,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 273);
+            this.label6.Location = new System.Drawing.Point(19, 160);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 9;
@@ -271,6 +278,7 @@
             this.btnThoat.TabIndex = 3;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // panel1
             // 
@@ -295,9 +303,21 @@
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "KhoiChieu";
-            this.Column3.HeaderText = "Khởi chiếu";
+            this.Column3.DataPropertyName = "ThoiGianBatDau";
+            this.Column3.HeaderText = "Giờ chiếu";
             this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "ThoiGianKetThuc";
+            this.Column4.HeaderText = "Kết thúc";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "TenPhongChieu";
+            this.Column5.HeaderText = "Phòng chiếu";
+            this.Column5.Name = "Column5";
             // 
             // UcLichChieu
             // 
@@ -346,5 +366,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

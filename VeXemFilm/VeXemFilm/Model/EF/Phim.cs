@@ -19,6 +19,10 @@ namespace VeXemFilm.Model.EF
         [Column(TypeName = "ntext")]
         public string MoTa { get; set; }
 
+<<<<<<< HEAD
         public DateTime KhoiChieu { get; set; }
+=======
+        public DateTime? KhoiChieu { get; set; }
+>>>>>>> f4ab550911144264a59c1d9d6ea5846c5dd8fb95
     }
 }
