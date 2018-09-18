@@ -36,6 +36,7 @@ namespace VeXemFilm.GUI
             txbMoTa.Enabled = false;
             txbTen.Enabled = false;
             txbThoiLuong.Enabled = false;
+            dtpKhoiChieu.Enabled = false;
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             btnThem.Text = "Thêm";
@@ -49,6 +50,7 @@ namespace VeXemFilm.GUI
             txbMoTa.Enabled = true;
             txbTen.Enabled = true;
             txbThoiLuong.Enabled = true;
+            dtpKhoiChieu.Enabled = true;
         }
 
         private void EmptyControl()
@@ -57,6 +59,7 @@ namespace VeXemFilm.GUI
             txbMoTa.Text = "";
             txbTen.Text = "";
             txbThoiLuong.Text = "";
+            dtpKhoiChieu.Value = DateTime.Today;
         }
 
         private void PhimAddBinding()
@@ -65,6 +68,7 @@ namespace VeXemFilm.GUI
             txbTen.DataBindings.Add("Text", dgrvPhim.DataSource, "TenPhim", true, DataSourceUpdateMode.Never);
             txbMoTa.DataBindings.Add("Text", dgrvPhim.DataSource, "MoTa", true, DataSourceUpdateMode.Never);
             txbThoiLuong.DataBindings.Add("Text", dgrvPhim.DataSource, "ThoiLuong", true, DataSourceUpdateMode.Never);
+            dtpKhoiChieu.DataBindings.Add("Value", dgrvPhim.DataSource, "KhoiChieu", true, DataSourceUpdateMode.Never);
         }
         #endregion
 
@@ -85,6 +89,7 @@ namespace VeXemFilm.GUI
                 item.TenPhim = txbTen.Text;
                 item.MoTa = txbMoTa.Text;
                 item.ThoiLuong = Convert.ToInt32(txbThoiLuong.Text);
+                item.KhoiChieu = dtpKhoiChieu.Value;
 
                 if(new PhimDAO().AddPhim(item))
                 {
@@ -115,6 +120,7 @@ namespace VeXemFilm.GUI
                 item.TenPhim = txbTen.Text;
                 item.MoTa = txbMoTa.Text;
                 item.ThoiLuong = Convert.ToInt32(txbThoiLuong.Text);
+                item.KhoiChieu = dtpKhoiChieu.Value;
 
                 if (new PhimDAO().EditPhim(item))
                 {

@@ -24,7 +24,7 @@ namespace VeXemFilm.DAO
                              join b in db.Ves
                              on a.ID equals b.LichChieuID
                              where (a.NgayChieu == ngaychieu && a.PhongChieuID == phongchieuid
-                             && a.PhimID == phimid && giochieu == (a.ThoiGianBatDau.ToString() + a.ThoiGianKetThuc.ToString()))
+                             && a.PhimID == phimid && giochieu == (((TimeSpan)a.ThoiGianBatDau).ToString() + ((TimeSpan)a.ThoiGianKetThuc).ToString()))
                              select new
                              {
                                  b = b.SoGhe //ví dụ ghế A1, B3 ....
@@ -53,19 +53,24 @@ namespace VeXemFilm.DAO
                             TenPhim = c.TenPhim,
                             PhongChieu = b.TenPhongChieu,
                             GiaVe = a.GiaVe,
-                            GioChieu = a.ThoiGianBatDau.ToString() + a.ThoiGianKetThuc.ToString(),
+                            GioChieu = "",
                             TongSoVe = b.TongSoGhe,
-                            SoVeConLai = b.TongSoGhe
+                            SoVeConLai = b.TongSoGhe,
+                            tgBatDau = a.ThoiGianBatDau,
+                            tgKetThuc = a.ThoiGianKetThuc,
                         }).ToList();
 
             foreach(DatVeView item in list)
             {
                 List<string> listSoGhe = LaySoGheDaDat(ngaychieu, item.PhongChieuID, item.GioChieu, item.PhimID);
 
+                item.GioChieu = ((TimeSpan)item.tgBatDau).ToString(@"hh\:mm") + " - " + ((TimeSpan)item.tgKetThuc).ToString(@"hh\:mm");
+
                 int soghedadat = listSoGhe.Count();
                 item.SoVeConLai = item.SoVeConLai - soghedadat;
             }
             return list;
         }
+
     }
 }

@@ -26,5 +26,9 @@ namespace VeXemFilm.Model.View
         public int TongSoVe { get; set; }
 
         public int SoVeConLai { get; set; }
+
+        public TimeSpan? tgBatDau { get; set; }
+
+        public TimeSpan? tgKetThuc { get; set; }
     }
 }
