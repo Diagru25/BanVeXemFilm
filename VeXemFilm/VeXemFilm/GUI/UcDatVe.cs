@@ -129,9 +129,8 @@ namespace VeXemFilm.GUI
 
         private void btnDatVe_Click(object sender, EventArgs e)
         {
-            //t add vào bảng vé ở đây
-
-            //xong m in ra à :v
+            InVe f = new InVe();
+            f.ShowDialog();
         }
     }
 }
