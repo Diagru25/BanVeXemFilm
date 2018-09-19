@@ -18,21 +18,22 @@ namespace VeXemFilm.DAO
         }
 
 
-        public List<string> LaySoGheDaDat(DateTime ngaychieu, long phongchieuid, string giochieu, long phimid)
+        public List<string> LaySoGheDaDat(DateTime ngaychieu, long phongchieuid, TimeSpan tgBatDau, TimeSpan tgKetThuc, long phimid)
         {
             var li = (from a in db.LichChieux
-                             join b in db.Ves
-                             on a.ID equals b.LichChieuID
-                             where (a.NgayChieu == ngaychieu && a.PhongChieuID == phongchieuid
-                             && a.PhimID == phimid && giochieu == (((TimeSpan)a.ThoiGianBatDau).ToString() + ((TimeSpan)a.ThoiGianKetThuc).ToString()))
-                             select new
-                             {
-                                 b = b.SoGhe //ví dụ ghế A1, B3 ....
-                             }).ToList();
+                      join b in db.Ves
+                      on a.ID equals b.LichChieuID
+                      where (a.NgayChieu == ngaychieu && a.PhimID == phimid && a.PhongChieuID == phongchieuid &&
+                       a.ThoiGianBatDau == tgBatDau && a.ThoiGianKetThuc == tgKetThuc
+                       )
+                      select new
+                      {
+                          b.SoGhe
+                      }).ToList();
             List<string> listSoGhe = new List<string>();
             foreach (var item in li)
             {
-                listSoGhe.Add(item.ToString());
+                listSoGhe.Add(item.SoGhe.ToString());
             }
             return listSoGhe;
         }
@@ -60,9 +61,9 @@ namespace VeXemFilm.DAO
                             tgKetThuc = a.ThoiGianKetThuc,
                         }).ToList();
 
-            foreach(DatVeView item in list)
+            foreach (DatVeView item in list)
             {
-                List<string> listSoGhe = LaySoGheDaDat(ngaychieu, item.PhongChieuID, item.GioChieu, item.PhimID);
+                List<string> listSoGhe = LaySoGheDaDat(ngaychieu, item.PhongChieuID, (TimeSpan)item.tgBatDau, (TimeSpan)item.tgKetThuc, item.PhimID);
 
                 item.GioChieu = ((TimeSpan)item.tgBatDau).ToString(@"hh\:mm") + " - " + ((TimeSpan)item.tgKetThuc).ToString(@"hh\:mm");
 

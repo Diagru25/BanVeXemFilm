@@ -256,6 +256,7 @@
             this.btnLamLai.TabIndex = 6;
             this.btnLamLai.Text = "Làm lại";
             this.btnLamLai.UseVisualStyleBackColor = true;
+            this.btnLamLai.Click += new System.EventHandler(this.btnLamLai_Click);
             // 
             // btnHuyVe
             // 
@@ -265,6 +266,7 @@
             this.btnHuyVe.TabIndex = 5;
             this.btnHuyVe.Text = "Hủy vé";
             this.btnHuyVe.UseVisualStyleBackColor = true;
+            this.btnHuyVe.Click += new System.EventHandler(this.btnHuyVe_Click);
             // 
             // btnDatVe
             // 
@@ -287,6 +289,7 @@
             // 
             this.txbSoGhe.Location = new System.Drawing.Point(75, 16);
             this.txbSoGhe.Name = "txbSoGhe";
+            this.txbSoGhe.ReadOnly = true;
             this.txbSoGhe.Size = new System.Drawing.Size(237, 20);
             this.txbSoGhe.TabIndex = 2;
             // 

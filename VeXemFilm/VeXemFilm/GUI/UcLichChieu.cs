@@ -32,6 +32,7 @@ namespace VeXemFilm.GUI
             dtpNgayChieu.Value = date;
             list.DataSource = new LichChieuDAO().LichChieuDetails().Where(x => x.NgayChieu == date).ToList();
             dgrvLichChieu.DataSource = list;
+
             cboPhim.DataSource = new PhimDAO().GetAll().Where(x => x.KhoiChieu <= date).ToList();
             cboPhim.ValueMember = "ID";
             cboPhim.DisplayMember = "TenPhim";
@@ -50,7 +51,7 @@ namespace VeXemFilm.GUI
 
         private void dtpNgayChieu_ValueChanged(object sender, EventArgs e)
         {
-            dgrvLichChieu.DataSource = new LichChieuDAO().LichChieuDetails().Where(x => x.NgayChieu == DateTime.Today).ToList();
+            dgrvLichChieu.DataSource = new LichChieuDAO().LichChieuDetails().Where(x => x.NgayChieu == dtpNgayChieu.Value.Date).ToList();
         }
 
         void LockControl(bool status)
@@ -109,7 +110,7 @@ namespace VeXemFilm.GUI
                     MessageBox.Show("Nhập sai thời gian kết thúc!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                item.NgayChieu = dtpNgayChieu.Value;
+                item.NgayChieu = dtpNgayChieu.Value.Date;
                 item.PhimID = Convert.ToInt32(cboPhim.SelectedValue);
                 item.PhongChieuID = Convert.ToInt32(cboPhongChieu.SelectedValue);
                 bool res = new LichChieuDAO().Insert(item);
@@ -121,7 +122,7 @@ namespace VeXemFilm.GUI
                 else
                 {
                     MessageBox.Show("Thêm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadData(dtpNgayChieu.Value);
+                    LoadData(dtpNgayChieu.Value.Date);
                     btnThem.Text = "Thêm";
                     btnXoa.Text = "Xóa";
                     btnSua.Enabled = true;
@@ -172,7 +173,7 @@ namespace VeXemFilm.GUI
                     MessageBox.Show("Nhập sai thời gian kết thúc!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                item.NgayChieu = dtpNgayChieu.Value;
+                item.NgayChieu = dtpNgayChieu.Value.Date;
                 item.PhimID = Convert.ToInt32(cboPhim.SelectedValue);
                 item.PhongChieuID = Convert.ToInt32(cboPhongChieu.SelectedValue);
                 bool res = new LichChieuDAO().Edit(item);
@@ -184,7 +185,7 @@ namespace VeXemFilm.GUI
                 else
                 {
                     MessageBox.Show("Sửa thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadData(dtpNgayChieu.Value);
+                    LoadData(dtpNgayChieu.Value.Date);
                     btnSua.Text = "Sửa";
                     btnXoa.Text = "Xóa";
                     btnThem.Enabled = true;
@@ -209,7 +210,7 @@ namespace VeXemFilm.GUI
                     if (result)
                     {
                         MessageBox.Show("Xóa thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadData(dtpNgayChieu.Value);
+                        LoadData(dtpNgayChieu.Value.Date);
                     }
                     else
                     {
