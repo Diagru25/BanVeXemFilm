@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VeXemFilm.DAO;
 using VeXemFilm.Model.EF;
+using VeXemFilm.Model.View;
 
 namespace VeXemFilm.GUI
 {
@@ -18,6 +19,7 @@ namespace VeXemFilm.GUI
         decimal gia = 0;
         long phongchieuid, phimid;
         TimeSpan thoigianbatdau, thoigianketthuc;
+        List<VeView> ListVe = new List<VeView>();
         public UcDatVe()
         {
             InitializeComponent();
@@ -184,10 +186,6 @@ namespace VeXemFilm.GUI
         //nhấn nút đặt vé
         private void btnDatVe_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            InVe f = new InVe();
-            f.ShowDialog();
-=======
             //t add vào bảng vé ở đây
             long idLichChieu = Convert.ToInt32(dgrvLichChieu.CurrentRow.Cells["ID"].Value.ToString());
             DateTime NgayMua = DateTime.Today.Date;
@@ -203,7 +201,16 @@ namespace VeXemFilm.GUI
                     item.LichChieuID = idLichChieu;
                     item.NgayMua = NgayMua;
                     item.SoGhe = dsGhe[i].Trim();
-                    new VeDAO().AddVe(item);
+                    VeView ve = new VeView();
+                    ve.ID = new VeDAO().AddVe(item);
+                    ve.GiaVe = Convert.ToDecimal(dgrvLichChieu.CurrentRow.Cells["GiaVe"].Value.ToString());
+                    ve.Ngay = dtpNgayChieu.Value.Date;
+                    ve.PhongChieu = dgrvLichChieu.CurrentRow.Cells["PhongChieu"].Value.ToString();
+                    ve.SoGhe = item.SoGhe;
+                    ve.TenPhim = dgrvLichChieu.CurrentRow.Cells["TenPhim"].Value.ToString();
+                    ve.BatDau = (TimeSpan)dgrvLichChieu.CurrentRow.Cells["tgBatDau"].Value;
+                    InVe f = new InVe(ve);
+                    f.ShowDialog();
                 }
                 reload();
                 CreateListBtn(ucClick, tongsoghe, new DatVeDAO().LaySoGheDaDat(dtpNgayChieu.Value.Date, phongchieuid, thoigianbatdau, thoigianketthuc, phimid));
@@ -212,9 +219,6 @@ namespace VeXemFilm.GUI
             {
                 MessageBox.Show("Lỗi bất ngờ");
             }
-
-            //xong m in ra à :v
->>>>>>> 78e17394c4879f1f9925edf02e585dc7d6191b42
         }
 
 

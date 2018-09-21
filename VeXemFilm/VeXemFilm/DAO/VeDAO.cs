@@ -16,18 +16,11 @@ namespace VeXemFilm.DAO
             db = new VeXemPhimDbContext();
         }
 
-        public bool AddVe(Ve item)
+        public long AddVe(Ve item)
         {
-            try
-            {
                 db.Ves.Add(item);
                 db.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+                return item.ID;
         }
         public bool RemoveVe(DateTime ngaychieu, long phongchieuid, TimeSpan tgBatDau, TimeSpan tgKetThuc, long phimid, string soghe)
         {

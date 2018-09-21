@@ -16,14 +16,14 @@ namespace VeXemFilm.GUI {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Ticket : ReportClass {
+    public class ThongKe : ReportClass {
         
-        public Ticket() {
+        public ThongKe() {
         }
         
         public override string ResourceName {
             get {
-                return "Ticket.rpt";
+                return "ThongKe.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace VeXemFilm.GUI {
         
         public override string FullResourceName {
             get {
-                return "VeXemFilm.GUI.Ticket.rpt";
+                return "VeXemFilm.GUI.ThongKe.rpt";
             }
             set {
                 // Do nothing
@@ -90,7 +90,7 @@ namespace VeXemFilm.GUI {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ID {
+        public CrystalDecisions.Shared.IParameterField Parameter__start {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,7 +98,7 @@ namespace VeXemFilm.GUI {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_TenPhim {
+        public CrystalDecisions.Shared.IParameterField Parameter__end {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -106,7 +106,7 @@ namespace VeXemFilm.GUI {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_SoGhe {
+        public CrystalDecisions.Shared.IParameterField Parameter__doanhthu {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
@@ -114,41 +114,17 @@ namespace VeXemFilm.GUI {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_PhongChieu {
+        public CrystalDecisions.Shared.IParameterField Parameter__doanhthuso {
             get {
                 return this.DataDefinition.ParameterFields[3];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_BatDau {
-            get {
-                return this.DataDefinition.ParameterFields[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Ngay {
-            get {
-                return this.DataDefinition.ParameterFields[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_GiaVe {
-            get {
-                return this.DataDefinition.ParameterFields[6];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedTicket : Component, ICachedReport {
+    public class CachedThongKe : Component, ICachedReport {
         
-        public CachedTicket() {
+        public CachedThongKe() {
         }
         
         [Browsable(false)]
@@ -185,7 +161,7 @@ namespace VeXemFilm.GUI {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Ticket rpt = new Ticket();
+            ThongKe rpt = new ThongKe();
             rpt.Site = this.Site;
             return rpt;
         }
