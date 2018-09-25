@@ -77,7 +77,8 @@
             "Lịch chiếu",
             "Phim",
             "Vé",
-            "Phòng chiếu"});
+            "Phòng chiếu",
+            "Thống kê"});
             this.cboQuanLy.Location = new System.Drawing.Point(313, 38);
             this.cboQuanLy.Name = "cboQuanLy";
             this.cboQuanLy.Size = new System.Drawing.Size(203, 21);

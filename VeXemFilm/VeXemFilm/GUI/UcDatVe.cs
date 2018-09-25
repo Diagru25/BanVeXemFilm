@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VeXemFilm.DAO;
 using VeXemFilm.Model.EF;
+using VeXemFilm.Model.View;
 
 namespace VeXemFilm.GUI
 {
@@ -18,6 +19,7 @@ namespace VeXemFilm.GUI
         decimal gia = 0;
         long phongchieuid, phimid;
         TimeSpan thoigianbatdau, thoigianketthuc;
+        List<VeView> ListVe = new List<VeView>();
         public UcDatVe()
         {
             InitializeComponent();
@@ -199,7 +201,16 @@ namespace VeXemFilm.GUI
                     item.LichChieuID = idLichChieu;
                     item.NgayMua = NgayMua;
                     item.SoGhe = dsGhe[i].Trim();
-                    new VeDAO().AddVe(item);
+                    VeView ve = new VeView();
+                    ve.ID = new VeDAO().AddVe(item);
+                    ve.GiaVe = Convert.ToDecimal(dgrvLichChieu.CurrentRow.Cells["GiaVe"].Value.ToString());
+                    ve.Ngay = dtpNgayChieu.Value.Date;
+                    ve.PhongChieu = dgrvLichChieu.CurrentRow.Cells["PhongChieu"].Value.ToString();
+                    ve.SoGhe = item.SoGhe;
+                    ve.TenPhim = dgrvLichChieu.CurrentRow.Cells["TenPhim"].Value.ToString();
+                    ve.BatDau = (TimeSpan)dgrvLichChieu.CurrentRow.Cells["tgBatDau"].Value;
+                    InVe f = new InVe(ve);
+                    f.ShowDialog();
                 }
                 reload();
                 CreateListBtn(ucClick, tongsoghe, new DatVeDAO().LaySoGheDaDat(dtpNgayChieu.Value.Date, phongchieuid, thoigianbatdau, thoigianketthuc, phimid));
@@ -208,8 +219,6 @@ namespace VeXemFilm.GUI
             {
                 MessageBox.Show("Lỗi bất ngờ");
             }
-
-            //xong m in ra à :v
         }
 
 

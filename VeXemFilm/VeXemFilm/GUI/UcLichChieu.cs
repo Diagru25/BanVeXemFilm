@@ -51,7 +51,7 @@ namespace VeXemFilm.GUI
 
         private void dtpNgayChieu_ValueChanged(object sender, EventArgs e)
         {
-            dgrvLichChieu.DataSource = new LichChieuDAO().LichChieuDetails().Where(x => x.NgayChieu == dtpNgayChieu.Value.Date).ToList();
+            dgrvLichChieu.DataSource = new LichChieuDAO().LichChieuDetails().Where(x => x.NgayChieu <= dtpNgayChieu.Value.Date).ToList();
         }
 
         void LockControl(bool status)
