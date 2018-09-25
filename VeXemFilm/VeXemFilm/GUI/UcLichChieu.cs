@@ -233,3 +233,7 @@ namespace VeXemFilm.GUI
     }
 }
 
+
+// lịch chiếu được load lên bằng view.
+// tạo 1 class khác trong thư mục View
+

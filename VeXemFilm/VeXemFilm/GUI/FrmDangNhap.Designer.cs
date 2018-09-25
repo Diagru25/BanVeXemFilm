@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbUsername = new System.Windows.Forms.TextBox();
+            this.txbpass = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -53,19 +53,20 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Mật khẩu";
             // 
-            // textBox1
+            // txbUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 20);
-            this.textBox1.TabIndex = 2;
+            this.txbUsername.Location = new System.Drawing.Point(126, 43);
+            this.txbUsername.Name = "txbUsername";
+            this.txbUsername.Size = new System.Drawing.Size(227, 20);
+            this.txbUsername.TabIndex = 2;
             // 
-            // textBox2
+            // txbpass
             // 
-            this.textBox2.Location = new System.Drawing.Point(126, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(227, 20);
-            this.textBox2.TabIndex = 3;
+            this.txbpass.Location = new System.Drawing.Point(126, 97);
+            this.txbpass.Name = "txbpass";
+            this.txbpass.Size = new System.Drawing.Size(227, 20);
+            this.txbpass.TabIndex = 3;
+            this.txbpass.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
@@ -83,8 +84,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 214);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbpass);
+            this.Controls.Add(this.txbUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmDangNhap";
@@ -99,8 +100,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbUsername;
+        private System.Windows.Forms.TextBox txbpass;
         private System.Windows.Forms.Button btnLogin;
     }
 }
