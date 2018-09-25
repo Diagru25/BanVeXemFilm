@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -41,11 +45,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +64,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DatVeDAO.cs" />
+    <Compile Include="DAO\LichChieuDAO.cs" />
+    <Compile Include="DAO\PhimDAO.cs" />
+    <Compile Include="DAO\PhongChieuDAO.cs" />
+    <Compile Include="DAO\VeDAO.cs" />
+    <Compile Include="GUI\DSThongKe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSThongKe.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,11 +86,41 @@
     <Compile Include="GUI\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\InThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\InThongKe.Designer.cs">
+      <DependentUpon>InThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\InVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\InVe.Designer.cs">
+      <DependentUpon>InVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThongKe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongKe.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Ticket.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ticket.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\UcPhongChieu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\UcPhongChieu.Designer.cs">
       <DependentUpon>UcPhongChieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UcThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UcThongKe.Designer.cs">
+      <DependentUpon>UcThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UcVe.cs">
       <SubType>UserControl</SubType>
@@ -99,12 +146,17 @@
     <Compile Include="GUI\UcDatVe.Designer.cs">
       <DependentUpon>UcDatVe.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\VNCurrency.cs" />
     <Compile Include="Model\EF\Account.cs" />
     <Compile Include="Model\EF\LichChieu.cs" />
     <Compile Include="Model\EF\Phim.cs" />
     <Compile Include="Model\EF\PhongChieu.cs" />
     <Compile Include="Model\EF\Ve.cs" />
     <Compile Include="Model\EF\VeXemPhimDbContext.cs" />
+    <Compile Include="Model\View\DatVeView.cs" />
+    <Compile Include="Model\View\LichChieuView.cs" />
+    <Compile Include="Model\View\ThongKeView.cs" />
+    <Compile Include="Model\View\VeView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FrmDangNhap.resx">
@@ -112,6 +164,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\InThongKe.resx">
+      <DependentUpon>InThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\InVe.resx">
+      <DependentUpon>InVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThongKe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ThongKe.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Ticket.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Ticket.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcDatVe.resx">
       <DependentUpon>UcDatVe.cs</DependentUpon>
@@ -125,6 +191,9 @@
     <EmbeddedResource Include="GUI\UcPhongChieu.resx">
       <DependentUpon>UcPhongChieu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UcThongKe.resx">
+      <DependentUpon>UcThongKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcVe.resx">
       <DependentUpon>UcVe.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +206,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="GUI\DSThongKe.xsc">
+      <DependentUpon>DSThongKe.xsd</DependentUpon>
+    </None>
+    <None Include="GUI\DSThongKe.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSThongKe.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GUI\DSThongKe.xss">
+      <DependentUpon>DSThongKe.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -152,7 +232,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAO\" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
