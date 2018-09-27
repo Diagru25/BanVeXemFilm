@@ -59,6 +59,7 @@
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(227, 20);
             this.txbUsername.TabIndex = 2;
+            this.txbUsername.Text = "admin";
             // 
             // txbpass
             // 
@@ -66,6 +67,7 @@
             this.txbpass.Name = "txbpass";
             this.txbpass.Size = new System.Drawing.Size(227, 20);
             this.txbpass.TabIndex = 3;
+            this.txbpass.Text = "123456";
             this.txbpass.UseSystemPasswordChar = true;
             // 
             // btnLogin

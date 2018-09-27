@@ -17,6 +17,6 @@ namespace VeXemFilm.Model.EF
         [StringLength(50)]
         public string ViTri { get; set; }
 
-        public int TongSoGhe { get; set; }
+        public int? TongSoGhe { get; set; }
     }
 }

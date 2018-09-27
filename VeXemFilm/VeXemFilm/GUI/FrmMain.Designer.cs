@@ -78,7 +78,8 @@
             "Phim",
             "Vé",
             "Phòng chiếu",
-            "Thống kê"});
+            "Thống kê",
+            "Thể loại phim"});
             this.cboQuanLy.Location = new System.Drawing.Point(313, 38);
             this.cboQuanLy.Name = "cboQuanLy";
             this.cboQuanLy.Size = new System.Drawing.Size(203, 21);

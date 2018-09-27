@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgrvPhim = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -37,6 +38,8 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpKhoiChieu = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.txbMoTa = new System.Windows.Forms.TextBox();
             this.txbThoiLuong = new System.Windows.Forms.TextBox();
             this.txbTen = new System.Windows.Forms.TextBox();
@@ -45,9 +48,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtpKhoiChieu = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cboTheLoai = new System.Windows.Forms.ComboBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TheLoaiID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KhoiChieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenPhim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +77,7 @@
             this.dgrvPhim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvPhim.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
+            this.TheLoaiID,
             this.KhoiChieu,
             this.TenPhim,
             this.MoTa,
@@ -146,6 +151,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboTheLoai);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.dtpKhoiChieu);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txbMoTa);
@@ -162,6 +169,24 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phim";
+            // 
+            // dtpKhoiChieu
+            // 
+            this.dtpKhoiChieu.CustomFormat = "dd/MM/yyyy";
+            this.dtpKhoiChieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpKhoiChieu.Location = new System.Drawing.Point(79, 351);
+            this.dtpKhoiChieu.Name = "dtpKhoiChieu";
+            this.dtpKhoiChieu.Size = new System.Drawing.Size(251, 20);
+            this.dtpKhoiChieu.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 357);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Khởi Chiếu";
             // 
             // txbMoTa
             // 
@@ -229,23 +254,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 357);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Khởi Chiếu";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 411);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Thể loại";
             // 
-            // dtpKhoiChieu
+            // cboTheLoai
             // 
-            this.dtpKhoiChieu.CustomFormat = "dd/MM/yyyy";
-            this.dtpKhoiChieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpKhoiChieu.Location = new System.Drawing.Point(79, 351);
-            this.dtpKhoiChieu.Name = "dtpKhoiChieu";
-            this.dtpKhoiChieu.Size = new System.Drawing.Size(251, 20);
-            this.dtpKhoiChieu.TabIndex = 9;
+            this.cboTheLoai.FormattingEnabled = true;
+            this.cboTheLoai.Location = new System.Drawing.Point(79, 408);
+            this.cboTheLoai.Name = "cboTheLoai";
+            this.cboTheLoai.Size = new System.Drawing.Size(251, 21);
+            this.cboTheLoai.TabIndex = 11;
             // 
             // ID
             // 
@@ -254,12 +278,20 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             // 
+            // TheLoaiID
+            // 
+            this.TheLoaiID.DataPropertyName = "TheLoaiID";
+            this.TheLoaiID.HeaderText = "TheLoaiID";
+            this.TheLoaiID.Name = "TheLoaiID";
+            this.TheLoaiID.Visible = false;
+            // 
             // KhoiChieu
             // 
             this.KhoiChieu.DataPropertyName = "KhoiChieu";
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            this.KhoiChieu.DefaultCellStyle = dataGridViewCellStyle1;
             this.KhoiChieu.HeaderText = "Khởi chiếu";
             this.KhoiChieu.Name = "KhoiChieu";
-            this.KhoiChieu.DefaultCellStyle.Format = "dd/MM/yyyy";
             // 
             // TenPhim
             // 
@@ -324,9 +356,12 @@
         private System.Windows.Forms.DateTimePicker dtpKhoiChieu;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TheLoaiID;
         private System.Windows.Forms.DataGridViewTextBoxColumn KhoiChieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenPhim;
         private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThoiLuong;
+        private System.Windows.Forms.ComboBox cboTheLoai;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -64,6 +64,12 @@ namespace VeXemFilm.GUI
                     pnlMain.Controls.Add(uc5);
                     break;
 
+                case "Thể loại phim":
+                    UcTheLoai uc6 = new UcTheLoai();
+                    uc6.Dock = DockStyle.Fill;
+                    pnlMain.Controls.Add(uc6);
+                    break;
+
                 default: break;
 
             }

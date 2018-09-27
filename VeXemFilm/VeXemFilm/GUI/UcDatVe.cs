@@ -201,8 +201,11 @@ namespace VeXemFilm.GUI
                     item.LichChieuID = idLichChieu;
                     item.NgayMua = NgayMua;
                     item.SoGhe = dsGhe[i].Trim();
+
                     VeView ve = new VeView();
-                    ve.ID = new VeDAO().AddVe(item);
+                    ve.ID = new VeDAO().AddVe(item); // add vào bảng vé
+
+                    // sau đó là in vé
                     ve.GiaVe = Convert.ToDecimal(dgrvLichChieu.CurrentRow.Cells["GiaVe"].Value.ToString());
                     ve.Ngay = dtpNgayChieu.Value.Date;
                     ve.PhongChieu = dgrvLichChieu.CurrentRow.Cells["PhongChieu"].Value.ToString();

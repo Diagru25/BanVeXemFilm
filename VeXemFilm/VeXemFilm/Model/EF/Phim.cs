@@ -19,6 +19,9 @@ namespace VeXemFilm.Model.EF
         [Column(TypeName = "ntext")]
         public string MoTa { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? KhoiChieu { get; set; }
+
+        public long? TheLoaiID { get; set; }
     }
 }

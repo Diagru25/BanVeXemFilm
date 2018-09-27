@@ -23,9 +23,9 @@ namespace VeXemFilm.Model.View
 
         public decimal? GiaVe { get; set; }
 
-        public int TongSoVe { get; set; }
+        public int? TongSoVe { get; set; }
 
-        public int SoVeConLai { get; set; }
+        public int? SoVeConLai { get; set; }
 
         public TimeSpan? tgBatDau { get; set; }
 

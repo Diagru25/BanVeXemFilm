@@ -68,6 +68,7 @@
     <Compile Include="DAO\LichChieuDAO.cs" />
     <Compile Include="DAO\PhimDAO.cs" />
     <Compile Include="DAO\PhongChieuDAO.cs" />
+    <Compile Include="DAO\TheLoaiDAO.cs" />
     <Compile Include="DAO\VeDAO.cs" />
     <Compile Include="GUI\DSThongKe.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -116,6 +117,12 @@
     <Compile Include="GUI\UcPhongChieu.Designer.cs">
       <DependentUpon>UcPhongChieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UcTheLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UcTheLoai.Designer.cs">
+      <DependentUpon>UcTheLoai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UcThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,6 +158,7 @@
     <Compile Include="Model\EF\LichChieu.cs" />
     <Compile Include="Model\EF\Phim.cs" />
     <Compile Include="Model\EF\PhongChieu.cs" />
+    <Compile Include="Model\EF\TheLoai.cs" />
     <Compile Include="Model\EF\Ve.cs" />
     <Compile Include="Model\EF\VeXemPhimDbContext.cs" />
     <Compile Include="Model\View\DatVeView.cs" />
@@ -190,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcPhongChieu.resx">
       <DependentUpon>UcPhongChieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UcTheLoai.resx">
+      <DependentUpon>UcTheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UcThongKe.resx">
       <DependentUpon>UcThongKe.cs</DependentUpon>

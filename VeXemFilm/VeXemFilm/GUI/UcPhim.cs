@@ -19,6 +19,7 @@ namespace VeXemFilm.GUI
         {
             InitializeComponent();
             dgrvPhim.DataSource = list;
+            loadcboTheLoai();
             loadPhim();
             PhimAddBinding();
             LockControl();
@@ -29,7 +30,12 @@ namespace VeXemFilm.GUI
         {
             list.DataSource = new PhimDAO().GetAll();
         }
-
+        private void loadcboTheLoai()
+        {
+            cboTheLoai.DataSource = new TheLoaiDAO().GetAll();
+            cboTheLoai.DisplayMember = "TenTheLoai";
+            cboTheLoai.ValueMember = "ID";
+        }
         private void LockControl()
         {
             txbMa.Enabled = false;
@@ -37,6 +43,7 @@ namespace VeXemFilm.GUI
             txbTen.Enabled = false;
             txbThoiLuong.Enabled = false;
             dtpKhoiChieu.Enabled = false;
+            cboTheLoai.Enabled = false;
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             btnThem.Text = "Thêm";
@@ -51,6 +58,7 @@ namespace VeXemFilm.GUI
             txbTen.Enabled = true;
             txbThoiLuong.Enabled = true;
             dtpKhoiChieu.Enabled = true;
+            cboTheLoai.Enabled = true;
         }
 
         private void EmptyControl()
@@ -69,6 +77,7 @@ namespace VeXemFilm.GUI
             txbMoTa.DataBindings.Add("Text", dgrvPhim.DataSource, "MoTa", true, DataSourceUpdateMode.Never);
             txbThoiLuong.DataBindings.Add("Text", dgrvPhim.DataSource, "ThoiLuong", true, DataSourceUpdateMode.Never);
             dtpKhoiChieu.DataBindings.Add("Value", dgrvPhim.DataSource, "KhoiChieu", true, DataSourceUpdateMode.Never);
+            cboTheLoai.DataBindings.Add("SelectedValue", dgrvPhim.DataSource, "TheLoaiID", true, DataSourceUpdateMode.Never);
         }
         #endregion
 
@@ -121,6 +130,7 @@ namespace VeXemFilm.GUI
                 item.MoTa = txbMoTa.Text;
                 item.ThoiLuong = Convert.ToInt32(txbThoiLuong.Text);
                 item.KhoiChieu = dtpKhoiChieu.Value;
+                item.TheLoaiID = Convert.ToInt32(cboTheLoai.SelectedValue);
 
                 if (new PhimDAO().EditPhim(item))
                 {
