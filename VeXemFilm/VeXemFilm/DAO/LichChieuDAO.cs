@@ -31,7 +31,8 @@ namespace VeXemFilm.DAO
                            ThoiGianBatDau = (TimeSpan)a.ThoiGianBatDau,
                            ThoiGianKetThuc = (TimeSpan)a.ThoiGianKetThuc,
                            IDPhim = (long)a.PhimID,
-                           IDPhongChieu = (long)a.PhongChieuID
+                           IDPhongChieu = (long)a.PhongChieuID,
+                           ThoiLuong = b.ThoiLuong                         
                        };
             return data.ToList();
         }
@@ -71,6 +72,13 @@ namespace VeXemFilm.DAO
             {
                 var dbEntry = db.LichChieux.SingleOrDefault(x => x.ID == id);
                 db.LichChieux.Remove(dbEntry);
+
+                List<Ve> list_item = db.Ves.Where(x => x.LichChieuID == id).ToList();
+                foreach (Ve item in list_item)
+                {
+                    new VeDAO().Remove(item.ID);
+                }
+
                 db.SaveChanges();
                 return true;
             }

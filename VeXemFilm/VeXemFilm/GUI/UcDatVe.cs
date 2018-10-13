@@ -27,9 +27,9 @@ namespace VeXemFilm.GUI
         }
 
         #region khởi tạo và chức năng
-        private void LoadLichChieu(DateTime NgayChieu)
+        private void LoadLichChieu(DateTime NgayChieu, string TenPhim = "")
         {
-            dgrvLichChieu.DataSource = new DatVeDAO().LichChieuTheoNgay(NgayChieu);
+            dgrvLichChieu.DataSource = new DatVeDAO().LichChieuTheoNgay(NgayChieu, TenPhim);
         }
 
         private void EmptyControl()
@@ -141,6 +141,7 @@ namespace VeXemFilm.GUI
         // sự kiện chọn ngày
         private void dtpNgayChieu_ValueChanged(object sender, EventArgs e)
         {
+            txbTimKiem.Text = "";
             DateTime NgayChieu = dtpNgayChieu.Value.Date;
             LoadLichChieu(NgayChieu);
         }
@@ -181,6 +182,19 @@ namespace VeXemFilm.GUI
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+        }
+
+        private void txbTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                EmptyControl();
+                LoadLichChieu(dtpNgayChieu.Value.Date, txbTimKiem.Text);
+            }
+            catch
+            {
+
+            }
         }
 
         //nhấn nút đặt vé

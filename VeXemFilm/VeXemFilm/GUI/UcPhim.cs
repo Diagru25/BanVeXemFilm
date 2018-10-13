@@ -99,6 +99,7 @@ namespace VeXemFilm.GUI
                 item.MoTa = txbMoTa.Text;
                 item.ThoiLuong = Convert.ToInt32(txbThoiLuong.Text);
                 item.KhoiChieu = dtpKhoiChieu.Value;
+                item.TheLoaiID = Convert.ToInt32(cboTheLoai.SelectedValue);
 
                 if(new PhimDAO().AddPhim(item))
                 {

@@ -62,6 +62,13 @@ namespace VeXemFilm.DAO
             {
                 db.Phims.Remove(db.Phims.Find(id));
 
+                // remove các lịch chiếu  có cái phim bị xóa
+                List<LichChieu> list_item = db.LichChieux.Where(x => x.PhimID == id).ToList();
+                foreach(LichChieu item in list_item)
+                {
+                    new LichChieuDAO().Delete(item.ID);
+                }
+
                 db.SaveChanges();
                 return true;
             }
@@ -107,6 +114,17 @@ namespace VeXemFilm.DAO
             temp.sDoanhThu = String.Format("{0:C}", temp.DoanhThu).Replace("$", "").Split('.')[0] + "đ";
             res.Add(temp);
             return res;
+        }
+        public int GetThoiLuongByID(long phimid)
+        {
+            try
+            {
+                return (int)db.Phims.Find(phimid).ThoiLuong;
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }

@@ -38,9 +38,12 @@ namespace VeXemFilm.DAO
             return listSoGhe;
         }
 
-        public List<DatVeView> LichChieuTheoNgay(DateTime ngaychieu)
+        public List<DatVeView> LichChieuTheoNgay(DateTime ngaychieu, string TenPhim)
         {
-            var list = (from a in db.LichChieux
+            List<DatVeView> list = new List<DatVeView>();
+            if (TenPhim == "")
+            {
+                list = (from a in db.LichChieux
                         join b in db.PhongChieux
                         on a.PhongChieuID equals b.ID
                         join c in db.Phims
@@ -60,6 +63,30 @@ namespace VeXemFilm.DAO
                             tgBatDau = a.ThoiGianBatDau,
                             tgKetThuc = a.ThoiGianKetThuc,
                         }).ToList();
+            }
+            else
+            {
+                list = (from a in db.LichChieux
+                        join b in db.PhongChieux
+                        on a.PhongChieuID equals b.ID
+                        join c in db.Phims
+                        on a.PhimID equals c.ID
+                        where (a.NgayChieu == ngaychieu && c.TenPhim.Contains(TenPhim))
+                        select new DatVeView()
+                        {
+                            ID = a.ID,
+                            PhongChieuID = b.ID,
+                            PhimID = c.ID,
+                            TenPhim = c.TenPhim,
+                            PhongChieu = b.TenPhongChieu,
+                            GiaVe = a.GiaVe,
+                            GioChieu = "",
+                            TongSoVe = b.TongSoGhe,
+                            SoVeConLai = b.TongSoGhe,
+                            tgBatDau = a.ThoiGianBatDau,
+                            tgKetThuc = a.ThoiGianKetThuc,
+                        }).ToList();
+            }
 
             foreach (DatVeView item in list)
             {
@@ -72,6 +99,5 @@ namespace VeXemFilm.DAO
             }
             return list;
         }
-
     }
 }

@@ -17,5 +17,6 @@ namespace VeXemFilm.Model.View
         public long IDPhongChieu { get; set; }
         public string TenPhongChieu { get; set; }
         public Decimal GiaVe { get; set; }
+        public int? ThoiLuong { get; set; }
     }
 }

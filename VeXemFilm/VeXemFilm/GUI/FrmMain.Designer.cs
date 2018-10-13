@@ -76,7 +76,6 @@
             "Đặt vé",
             "Lịch chiếu",
             "Phim",
-            "Vé",
             "Phòng chiếu",
             "Thống kê",
             "Thể loại phim"});

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgrvLichChieu = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,16 +95,16 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "ThoiGianBatDau";
-            dataGridViewCellStyle3.Format = "hh\\:mm";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "hh\\:mm";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "Giờ chiếu";
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
             this.Column4.DataPropertyName = "ThoiGianKetThuc";
-            dataGridViewCellStyle4.Format = "hh\\:mm";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "hh\\:mm";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column4.HeaderText = "Kết thúc";
             this.Column4.Name = "Column4";
             // 
@@ -138,6 +138,7 @@
             this.txbTgBatDau.Size = new System.Drawing.Size(251, 20);
             this.txbTgBatDau.TabIndex = 5;
             this.txbTgBatDau.ValidatingType = typeof(System.DateTime);
+            this.txbTgBatDau.TextChanged += new System.EventHandler(this.txbTgBatDau_TextChanged);
             // 
             // txbMa
             // 
@@ -270,6 +271,7 @@
             this.cboPhim.Name = "cboPhim";
             this.cboPhim.Size = new System.Drawing.Size(251, 21);
             this.cboPhim.TabIndex = 11;
+            this.cboPhim.SelectedValueChanged += new System.EventHandler(this.cboPhim_SelectedValueChanged);
             // 
             // label7
             // 

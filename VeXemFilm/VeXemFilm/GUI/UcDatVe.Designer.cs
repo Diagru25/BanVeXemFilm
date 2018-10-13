@@ -56,6 +56,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.grbGhe = new System.Windows.Forms.GroupBox();
             this.fpnlGhe = new System.Windows.Forms.FlowLayoutPanel();
+            this.txbTimKiem = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvLichChieu)).BeginInit();
@@ -65,6 +67,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txbTimKiem);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.dtpNgayChieu);
             this.panel1.Controls.Add(this.label1);
@@ -207,7 +211,7 @@
             // 
             this.dtpNgayChieu.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayChieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayChieu.Location = new System.Drawing.Point(313, 3);
+            this.dtpNgayChieu.Location = new System.Drawing.Point(175, 9);
             this.dtpNgayChieu.Name = "dtpNgayChieu";
             this.dtpNgayChieu.Size = new System.Drawing.Size(200, 20);
             this.dtpNgayChieu.TabIndex = 1;
@@ -216,7 +220,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(275, 9);
+            this.label1.Location = new System.Drawing.Point(137, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
@@ -332,6 +336,23 @@
             this.fpnlGhe.Size = new System.Drawing.Size(878, 211);
             this.fpnlGhe.TabIndex = 3;
             // 
+            // txbTimKiem
+            // 
+            this.txbTimKiem.Location = new System.Drawing.Point(638, 9);
+            this.txbTimKiem.Name = "txbTimKiem";
+            this.txbTimKiem.Size = new System.Drawing.Size(237, 20);
+            this.txbTimKiem.TabIndex = 5;
+            this.txbTimKiem.TextChanged += new System.EventHandler(this.txbTimKiem_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(566, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Tìm kiếm";
+            // 
             // UcDatVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,5 +403,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaVe;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoVeConLai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongSoGhe;
+        private System.Windows.Forms.TextBox txbTimKiem;
+        private System.Windows.Forms.Label label4;
     }
 }

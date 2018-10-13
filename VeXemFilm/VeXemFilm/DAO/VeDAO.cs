@@ -22,6 +22,8 @@ namespace VeXemFilm.DAO
                 db.SaveChanges();
                 return item.ID;
         }
+
+        // sử dụng ở forrm đặt vé. dùng để hủy vé đã đặt
         public bool RemoveVe(DateTime ngaychieu, long phongchieuid, TimeSpan tgBatDau, TimeSpan tgKetThuc, long phimid, string soghe)
         {
             try
@@ -41,6 +43,20 @@ namespace VeXemFilm.DAO
                 {
                     db.Ves.Remove(db.Ves.Find(item.ID));
                 }
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        // chỉ dùng đẻ xóa khỏi bảng vé
+        public bool Remove(long id)
+        {
+            try
+            {
+                db.Ves.Remove(db.Ves.Find(id));
                 db.SaveChanges();
                 return true;
             }

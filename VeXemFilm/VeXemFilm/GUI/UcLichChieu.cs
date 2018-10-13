@@ -51,7 +51,7 @@ namespace VeXemFilm.GUI
 
         private void dtpNgayChieu_ValueChanged(object sender, EventArgs e)
         {
-            dgrvLichChieu.DataSource = new LichChieuDAO().LichChieuDetails().Where(x => x.NgayChieu <= dtpNgayChieu.Value.Date).ToList();
+            dgrvLichChieu.DataSource = new LichChieuDAO().LichChieuDetails().Where(x => x.NgayChieu == dtpNgayChieu.Value.Date).ToList();
         }
 
         void LockControl(bool status)
@@ -228,6 +228,65 @@ namespace VeXemFilm.GUI
                 btnThem.Enabled = true;
                 btnSua.Enabled = true;
                 btnThoat.Enabled = true;
+            }
+        }
+
+        private void txbTgBatDau_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int thoiluong = new PhimDAO().GetThoiLuongByID(Convert.ToInt32(cboPhim.SelectedValue)) + 15;
+                int gio = thoiluong / 60;
+                int phut = thoiluong - gio * 60;
+
+                TimeSpan oldtime = TimeSpan.Parse(txbTgBatDau.Text);
+
+                if (oldtime.Hours + gio < 24)
+                {
+                    TimeSpan aInterval = new System.TimeSpan(0, gio, phut, 0);
+                    TimeSpan newtime = oldtime.Add(aInterval);
+                    txbTgKetThuc.Text = newtime.ToString();
+                }
+                else
+                {
+
+                    MessageBox.Show("Thời gian kết thúc phim vượt quá trong một ngày !");
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void cboPhim_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int thoiluong = new PhimDAO().GetThoiLuongByID(Convert.ToInt32(cboPhim.SelectedValue)) + 15;
+                int gio = thoiluong / 60;
+                int phut = thoiluong - gio * 60;
+
+                TimeSpan oldtime = TimeSpan.Parse(txbTgBatDau.Text);
+
+                if (oldtime.Hours + gio < 24)
+                {
+                    TimeSpan aInterval = new System.TimeSpan(0, gio, phut, 0);
+                    TimeSpan newtime = oldtime.Add(aInterval);
+                    txbTgKetThuc.Text = newtime.ToString();
+                }
+                else
+                {
+
+                    MessageBox.Show("Phim này có thời gian kết thúc phim vượt quá trong một ngày, bạn hãy sửa lại !");
+                    txbTgBatDau.Focus();
+                    return;
+                }
+            }
+            catch
+            {
+
             }
         }
     }
